@@ -1,12 +1,24 @@
-function summarizeDataTypes(input: unknown[]): Record<string, number> {
+// Problem Statement
+
+// You are given a mixed array of values (numbers, strings, booleans, null, undefined, objects, arrays, etc.).  
+// Write a function summarizeDataTypes(input) that returns an object summarizing how many of each data type appear in the array.
+
+function summarizeDataTypes(input: any[]): Record<string, number> {
   const summary: Record<string, number> = {};
-  for (const value of input) {
-    let type = typeof value;
-    if (value === null) type = 'null';
+
+  for (const item of input) {
+    let type: string;
+
+    if (item === null) {
+      type = "null";
+    } else if (Array.isArray(item)) {
+      type = "array";
+    } else {
+      type = typeof item;
+    }
+
     summary[type] = (summary[type] || 0) + 1;
   }
+
   return summary;
 }
-
-const input: unknown[] = [42, 'hello', true, null, undefined, { a: 1 }, [1, 2], 99, false];
-console.log(summarizeDataTypes(input));
