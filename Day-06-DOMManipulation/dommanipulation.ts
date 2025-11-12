@@ -1,5 +1,9 @@
 // Problem Statement
-// Create a function that observes all <input> elements inside a form and dynamically adds a red border to any input that becomes empty after losing focus (blur event). Additionally, if the user starts typing again, the border should be removed in real time (input event). The function should handle dynamically added inputs as well (using MutationObserver).
+
+// Create a function that observes all <input> elements inside a form and
+// dynamically adds a red border to any input that becomes empty after losing focus (blur event).
+// Additionally, if the user starts typing again, the border should be removed in real time (input event). 
+// The function should handle dynamically added inputs as well (using MutationObserver).
 
 function validateDynamicInputs(formSelector: string) {
   const form = document.querySelector(formSelector) as HTMLFormElement | null;
